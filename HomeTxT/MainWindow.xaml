@@ -1,0 +1,28 @@
+﻿<Window x:Class="HomeTxT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HomeTxT"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        
+        <StackPanel DockPanel.Dock="Top" Height="40" Orientation="Horizontal" >
+            <Button x:Name="importButton" Content="Import" Height="25" Width="80" Margin="10,0,0,0" Click="importButton_Click" />
+            <Button x:Name="saveButton" Content="Save" Height="25" Width="80" Margin="10,0,0,0" />
+            <Button x:Name="saveAsButton" Content="Save as" Height="25" Width="80" Margin="10,0,0,0" />
+
+            <TextBlock x:Name="fileIndicator" Height="20" Margin="50,0,0,0" />
+        </StackPanel>
+        
+        <TextBox x:Name="textField" 
+                 AcceptsReturn="True" 
+                 AcceptsTab="True" 
+                 TextWrapping="NoWrap" 
+                 HorizontalScrollBarVisibility="Auto" 
+                 VerticalScrollBarVisibility="Auto" 
+         />
+        
+    </DockPanel>
+</Window>
