@@ -37,5 +37,22 @@ namespace HomeTxT
                 textField.Text = File.ReadAllText(filePath);
             }
         }
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            File.WriteAllText(filePath, textField.Text);
+        }
+
+        private void saveCopyAsButton_Click(object sender, RoutedEventArgs e)
+        {
+            var fileExplorer = new Microsoft.Win32.SaveFileDialog();
+
+            if (fileExplorer.ShowDialog() == true)
+            {
+                string tempFilePath = fileExplorer.FileName;
+                File.WriteAllText(tempFilePath, textField.Text);
+            }
+        }
+
     }
 }
