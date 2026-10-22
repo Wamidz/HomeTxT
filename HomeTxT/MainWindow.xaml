@@ -9,13 +9,29 @@
     <DockPanel>
         
         <StackPanel DockPanel.Dock="Top" Height="40" Orientation="Horizontal" >
-            <Button x:Name="importButton" Content="Import" Height="25" Width="80" Margin="10,0,0,0" Click="importButton_Click" />
-            <Button x:Name="saveButton" Content="Save" Height="25" Width="80" Margin="10,0,0,0" Click="saveButton_Click" />
-            <Button x:Name="saveCopyAsButton" Content="Save/Copy as" Height="25" Width="80" Margin="10,0,0,0" Click="saveCopyAsButton_Click" />
+            <Button x:Name="importButton" Content="Import" Height="25" Width="80" Margin="10,0,0,0" Click="ImportButton_Click" />
+            <Button x:Name="saveButton" Content="Save" Height="25" Width="80" Margin="10,0,0,0" Click="SaveButton_Click" />
+            <Button x:Name="saveCopyAsButton" Content="Save/Copy as" Height="25" Width="80" Margin="10,0,0,0" Click="SaveCopyAsButton_Click" />
 
-            <TextBlock x:Name="fileIndicator" Height="20" Margin="50,0,0,0" />
         </StackPanel>
-        
+
+        <DockPanel DockPanel.Dock="Bottom" Height="40" LastChildFill="False">
+            <TextBlock x:Name="fileIndicator" 
+               DockPanel.Dock="Left" 
+               Height="20" 
+               Margin="10,0,0,0" 
+               VerticalAlignment="Center" />
+
+            <TextBlock x:Name="savedToast" 
+               DockPanel.Dock="Right"
+               Text="✓ Saved!" 
+               Foreground="Green" 
+               FontWeight="Bold" 
+               VerticalAlignment="Center" 
+               Margin="0,0,10,0" 
+               Opacity="0" />
+        </DockPanel>
+
         <TextBox x:Name="textField" 
                  AcceptsReturn="True" 
                  AcceptsTab="True" 
@@ -23,6 +39,5 @@
                  HorizontalScrollBarVisibility="Auto" 
                  VerticalScrollBarVisibility="Auto" 
          />
-        
     </DockPanel>
 </Window>

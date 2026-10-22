@@ -1,31 +1,22 @@
 ﻿using System.IO;
-using System.Media;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HomeTxT
 {
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         string filePath = "";
-        public MainWindow() 
+        public MainWindow()
         {
             InitializeComponent();
 
         }
 
-        private void importButton_Click(object sender, RoutedEventArgs e)
+        private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
             var fileExplorer = new Microsoft.Win32.OpenFileDialog();
 
@@ -38,12 +29,13 @@ namespace HomeTxT
             }
         }
 
-        private void saveButton_Click(object sender, RoutedEventArgs e)
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             File.WriteAllText(filePath, textField.Text);
+            ShowSavedIndicator();
         }
 
-        private void saveCopyAsButton_Click(object sender, RoutedEventArgs e)
+        private void SaveCopyAsButton_Click(object sender, RoutedEventArgs e)
         {
             var fileExplorer = new Microsoft.Win32.SaveFileDialog();
 
@@ -51,6 +43,20 @@ namespace HomeTxT
             {
                 string tempFilePath = fileExplorer.FileName;
                 File.WriteAllText(tempFilePath, textField.Text);
+            }
+            ShowSavedIndicator();
+        }
+
+        private async void ShowSavedIndicator()
+        {
+            savedToast.Opacity = 1.0;
+
+            await Task.Delay(1500);
+
+            for (double i = 1.0; i >= 0; i -= 0.1)
+            {
+                savedToast.Opacity = i;
+                await Task.Delay(25);
             }
         }
 
