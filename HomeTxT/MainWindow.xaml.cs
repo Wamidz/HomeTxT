@@ -10,6 +10,8 @@ namespace HomeTxT
     public partial class MainWindow : Window
     {
         string filePath = "";
+        int Egg = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -60,5 +62,14 @@ namespace HomeTxT
             }
         }
 
+        private void EasterEgg_Click(object sender, RoutedEventArgs e)
+        {
+            if (Egg >= 10)
+            {
+                textField.Text = "Was it worth it?";
+                Egg = 0;
+            }
+            Egg++;
+        }
     }
 }
