@@ -1,13 +1,9 @@
 ﻿using System.IO;
 using System.Windows;
-using System.Threading.Tasks; // Added to support your existing async task code compiling seamlessly
+using System.Threading.Tasks;
 
 namespace HomeTxT
 {
-
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public string filePath = "";
