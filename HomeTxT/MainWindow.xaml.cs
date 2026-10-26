@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Windows;
+using System.Threading.Tasks; // Added to support your existing async task code compiling seamlessly
 
 namespace HomeTxT
 {
@@ -9,7 +10,7 @@ namespace HomeTxT
     /// </summary>
     public partial class MainWindow : Window
     {
-        string filePath = "";
+        public string filePath = "";
         int egg = 0;
 
         public MainWindow()
@@ -33,6 +34,9 @@ namespace HomeTxT
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            var censor = new CensorManager(this);
+            censor.ValueCheck();
+
             File.WriteAllText(filePath, textField.Text);
             ShowSavedIndicator();
         }
@@ -43,6 +47,9 @@ namespace HomeTxT
 
             if (fileExplorer.ShowDialog() == true)
             {
+                var censor = new CensorManager(this);
+                censor.ValueCheck();
+
                 string tempFilePath = fileExplorer.FileName;
                 File.WriteAllText(tempFilePath, textField.Text);
             }
